@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Employeur = require('/ChangilniAdmin/model/employeur')
+const Employeur = require('/changilniWeb/model/employeur')
 var _ = require('lodash');
 
 

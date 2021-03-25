@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Chef = require('/ChangilniAdmin/model/chefParc')
+const Chef = require('/changilniWeb/model/chefParc')
 var _ = require('lodash');
 
 

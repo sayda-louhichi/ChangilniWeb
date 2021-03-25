@@ -8,9 +8,9 @@ const passport=require('passport');
 //initialisation app avec express
 const app = express();
 
-const AdminRoutes = require('/ChangilniAdmin/route/admins');
-const ChefRoutes = require('/ChangilniAdmin/route/chefParcs');
-const EmployeurRoutes = require('/ChangilniAdmin/route/employeurs');
+const AdminRoutes = require('/changilniWeb/route/admins');
+const ChefRoutes = require('/changilniWeb/route/chefParcs');
+const EmployeurRoutes = require('/changilniWeb/route/employeurs');
 
 
 //connection database

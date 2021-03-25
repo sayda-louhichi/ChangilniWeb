@@ -1,9 +1,9 @@
 const express = require('express');
 const router =express.Router();
-const Admin = require('/ChangilniAdmin/model/admin');
-const Chef = require('/ChangilniAdmin/model/chefParc');
-const Employeur = require('/ChangilniAdmin/model/employeur');
-const Parc = require('/ChangilniAdmin/model/parc');
+const Admin = require('/changilniWeb/model/admin');
+const Chef = require('/changilniWeb/model/chefParc');
+const Employeur = require('/changilniWeb/model/employeur');
+const Parc = require('/changilniWeb/model/parc');
 var _ = require('lodash');
 //Login
 router.post('/login',(req, res, next)=>{
@@ -165,12 +165,12 @@ router.delete('/supp-chefParc/:id', (req, res, next)=>{
       if (err) {
         return res.send({
           success: false,
-          message: 'Failed to save the chef'
+          message: 'Failed to save the employeur'
         });
       }
       res.send({
         success: true,
-        message: 'chef Saved',
+        message: 'employeur Saved',
         employeur
       });
     });
