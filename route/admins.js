@@ -138,7 +138,7 @@ router.delete('/supp-chefParc/:id', (req, res, next)=>{
   });
 
   //Liste des employeurs
-  router.get('/list-employeur',(req,res, next)=>{ 
+  router.get('/list-employyeur',(req,res, next)=>{ 
     Employeur.find((error,data)=>{
         if(error) {
             return next(error)
