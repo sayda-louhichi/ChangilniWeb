@@ -76,7 +76,8 @@ router.post('/ajout-chefParc', (req, res, next) => {
       password: req.body.password,
       Cin: req.body.Cin,
       tel: req.body.tel,
-      adress: req.body.adress
+      adress: req.body.adress,
+      parc:req.body.Parc
     });
   
     newUser.save((err, chef) => {
@@ -273,4 +274,5 @@ router.route('/update-parc/:id').put((req, res, next) => {
         });
     });
   });
-module.exports =router;
+
+  module.exports =router;

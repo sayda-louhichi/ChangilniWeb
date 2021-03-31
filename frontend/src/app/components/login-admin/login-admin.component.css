@@ -1,0 +1,266 @@
+
+	.mediaViewInfo {
+		--web-view-name: 1-Admin sign in;
+		--web-view-id: ID1-Admin_sign_in;
+		--web-scale-on-resize: true;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: ID1-Admin_sign_in;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#ID1-Admin_sign_in {
+		position: absolute;
+		width: 1600px;
+		height: 960px;
+		background-color: rgba(228,228,228,1);
+		overflow: hidden;
+		--web-view-name: 1-Admin sign in;
+		--web-view-id: ID1-Admin_sign_in;
+		--web-scale-on-resize: true;
+		--web-enable-deep-linking: true;
+	}
+	#Rectangle_164_n {
+		fill: url(#Rectangle_164_n);
+	}
+	.Rectangle_164_n {
+		display: none;
+		position: absolute;
+		overflow: visible;
+		width: 800px;
+		height: 960px;
+		left: 0px;
+		top: 0px;
+	}
+	#e049cbf3-3a6b-4e33-8253-37fbcc {
+		position: absolute;
+		width: 385px;
+		height: 385px;
+		left: 34px;
+		top: -19px;
+		overflow: visible;
+	}
+	#text {
+		position: absolute;
+		width: 1680.439px;
+		height: 1279px;
+		left: -80.439px;
+		top: -19px;
+		overflow: visible;
+	}
+	#Rectangle_163 {
+		fill: rgba(231,130,0,1);
+	}
+	.Rectangle_163 {
+		position: absolute;
+		overflow: visible;
+		width: 1132px;
+		height: 960px;
+		left: 0px;
+		top: 319px;
+	}
+	#Term_of_use_Privacy_policy {
+		left: 346px;
+		top: 126px;
+		position: absolute;
+		overflow: visible;
+		width: 129px;
+		white-space: nowrap;
+		line-height: 13px;
+		margin-top: -1px;
+		text-align: center;
+		font-family: Avenir;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 11px;
+		color: rgba(221,221,221,1);
+	}
+	#text_s {
+		position: absolute;
+		width: 1457.122px;
+		height: 1000px;
+		left: 223.317px;
+		top: 0px;
+		overflow: visible;
+	}
+	#Rectangle_163_t {
+		fill: rgba(231,130,0,1);
+	}
+	.Rectangle_163_t {
+		position: absolute;
+		overflow: visible;
+		width: 1132px;
+		height: 1000px;
+		left: 325.122px;
+		top: 0px;
+	}
+	#google {
+		position: absolute;
+		width: 0px;
+		height: 0px;
+		left: 0px;
+		top: 261px;
+		overflow: visible;
+	}
+	#label {
+		position: absolute;
+		width: 400px;
+		height: 114.809px;
+		left: 737.122px;
+		top: 390.609px;
+		overflow: hidden;
+	}
+	#label_w {
+		position: absolute;
+		width: 400px;
+		height: 31.809px;
+		left: 0px;
+		top: -1px;
+		overflow: visible;
+	}
+	#Email {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 36px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(39,49,59,1);
+	}
+	#Trac_297 {
+		fill: rgba(39,49,59,1);
+		stroke: rgba(39,49,59,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Trac_297 {
+		overflow: visible;
+		position: absolute;
+		width: 400px;
+		height: 2px;
+		left: 0px;
+		top: 31.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#label_z {
+		position: absolute;
+		width: 400px;
+		height: 31.809px;
+		left: 0px;
+		top: 75px;
+		overflow: visible;
+	}
+	#mot_de_passe {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 90px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(39,49,59,1);
+	}
+	#Trac_297_ {
+		fill: rgba(39,49,59,1);
+		stroke: rgba(39,49,59,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Trac_297_ {
+		overflow: visible;
+		position: absolute;
+		width: 400px;
+		height: 2px;
+		left: 0px;
+		top: 31.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	#btn1 {
+		position: absolute;
+		width: 185px;
+		height: 50px;
+		left: 1054.122px;
+		top: 569px;
+        overflow: visible;
+        background-color:#27313B;
+        color:white;
+    
+	}
+	#Rectangle_166 {
+		fill: rgba(39,49,59,1);
+		stroke: rgba(39,49,59,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_166 {
+		position: absolute;
+		overflow: visible;
+		width: 185px;
+		height: 50px;
+		left: 0px;
+		top: 0px;
+	}
+	#Se_connecter {
+		left: 38px;
+		top: 13px;
+		position: absolute;
+		overflow: visible;
+		width: 103px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Avenir;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		color: rgba(255,255,255,1);
+	}
+	#Se_connecter_ {
+		left: 857px;
+		top: 181px;
+		position: absolute;
+		overflow: visible;
+		width: 245px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Times New Roman;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 45px;
+		color: rgba(134,88,29,1);
+    }
+    #label{
+        color:#27313B;
+        
+    }
+    #input{
+        background-color:#E4E4E4;
+    }
+
+
