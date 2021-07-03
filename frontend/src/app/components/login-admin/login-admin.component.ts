@@ -32,7 +32,7 @@ export class LoginAdminComponent implements OnInit {
         }
          
          else if (resp.success){console.log('login  admin success') ;
-        this.route.navigate(['/main']);
+        this.route.navigate(['/home']);
         }
           
        }
@@ -40,4 +40,9 @@ export class LoginAdminComponent implements OnInit {
        );
        
    }
+   /*onLogOut(){
+    this._adminService.logOut();
+    this.router.navigate(['/admin-auth']);
+    return false;
+  }*/
 }

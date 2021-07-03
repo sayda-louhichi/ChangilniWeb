@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Chef = require('/changilniWeb/model/chefParc')
+const Chef = require('/changilniWeb/model/chefParc');
 var _ = require('lodash');
 
 
@@ -95,5 +95,6 @@ router.put('/update-profile/:id', function (req, res, next) {
       })
   });
 });  
+
 
 module.exports = router;

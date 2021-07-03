@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+  <body>
+    <div id="class">
+    <div id="mySidenav" class="sidenav">
+      <div class="center"> <img src="../../assets/logo.png" width="150"></div> 
+      <button id="btn1" ><a href="admin/list-chefParc">Chef Parc</a></button>
+      <br>
+      <br>
+      <button id="btn2"><a href="admin/list-parc">Parc</a></button>
+      <br>
+      <br>
+      <button id="btn3"><a href="admin/list-employé">Employés</a></button>
+      
+       <div class="center"><button (click) ="onLogOut()"  class="button">LogOut</button></div>
+      
+     </div>
+     
+     <div class="main">
+        <form (submit)="update()" class="form-horizontal" >
+            <h2>Ajout Parc</h2>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Nom</label>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" [(ngModel)]="name" name="name" >
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">adress</label>
+              <div class="col-lg-10">
+                <input type="text" [(ngModel)]="adress" name="adress" >
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Gouvernorat</label>
+                <div class="col-lg-10">
+                  <select [(ngModel)]="gouvernorat" name="gouvernorat">
+                      <option value="Tunis">Tunis</option>
+                      <option value="Ben Arous">Ben Arous</option>
+                      <option value="Ariana">Ariana</option>
+                      <option value="Mannouba">Mannouba</option>
+                      <option value="Gafsa">Gafsa</option>
+                      <option value="Sidi-bouzid">Sidi bouzid</option>
+                      <option value="Bizete">Bizerte</option>
+                      <option value="jandouba">Jandouba</option>
+                      <option value="Kairouan">Kairouan</option>
+                      <option value="Kasserine">Kasserine</option>
+                      <option value="Kébili">Kébili</option>
+                      <option value="Kef">Kef</option>
+                      <option value="Mahdia">Mahdia</option>
+                      <option value="Médinine">Médinine</option>
+                      <option value="Monastir">Monastir</option>
+                      <option value="Nabeul">Nabeul</option>
+                      <option value="Sfax">Sfax</option>
+                      <option value="Siliana">Siliana</option>
+                      <option value="Sousse">Sousse</option>
+                      <option value="Tataouine">Tataouine</option>
+                      <option value="Tozeur">Tozeur</option>
+                      <option value="Zaghouan">Zaghouan</option>
+                      <option value="Gabés">Gabés</option>
+                      <option value="Béja">Béja</option>
+                    </select>
+                </div>
+              </div>
+            <div class="form-group">
+              <div class="pull-right">
+                <button id="btn4" type="submit" class="btn btn-primary">Modifier</button>
+              </div>
+            </div>
+          
+          </form>
+         </div>
+    </div>
+
+<!-- Optional JavaScript -->
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -13,10 +13,18 @@ const app = express();
 const AdminRoutes = require('/changilniWeb/route/admins');
 const ChefRoutes = require('/changilniWeb/route/chefParcs');
 const EmployeurRoutes = require('/changilniWeb/route/employeurs');
+const userRoute=require("./route/user.route");
+const immatriculeRoute=require("./route/immatricule.route");
+const profileRoute=require("./route/profile.route");
+const employeeRoute=require("./route/employee.route");
+const releveRoute=require("./route/releve.route");
+//const UserRoutes =require('/changilniWeb/route/users')
 
 
 //connection database
-mongoose.connect(process.env.DATABASE );
+mongoose.connect(process.env.DATABASE,{useNewUrlParser:true,
+    useCreateIndex:true,
+    useFindAndModify:true,});
 mongoose.connection.on('connected',()=>{
     console.log('connected to the database');
 });
@@ -27,12 +35,16 @@ mongoose.connection.on('error',(err)=>{
 const _PORT =process.env.PORT;
 
 //---------Middlewares---------///
+app.use("/uploads",express.static("uploads"));
+app.use(express.json());
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
+//require('./config/paasport')(passport);
 //static public 
-app.use(express.static(path.join(__dirname,'public')));
+//app.use(express.static(path.join(__dirname,'public')));
 
 
 //Routes
@@ -43,8 +55,13 @@ app.get('/',(req,res,next)=>{
 app.use('/admin',AdminRoutes);
 app.use('/chefParc',ChefRoutes);
 app.use('/employeur',EmployeurRoutes);
-
+app.use("/employee",employeeRoute);
+app.use("/releve",releveRoute);
+app.use("/user",userRoute);
+app.use("/immatricule",immatriculeRoute);
+app.use("/profile",profileRoute);
+//app.use('/user',UserRoutes)
 //Démarrer le service
-app.listen(_PORT,()=>{
+app.listen(_PORT,"0.0.0.0",()=>{
 console.log('server started');
 })

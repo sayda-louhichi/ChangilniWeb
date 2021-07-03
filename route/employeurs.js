@@ -66,7 +66,7 @@ router.post('/register', (req, res, next) => {
     Cin: req.body.Cin,
     tel: req.body.tel,
     adress: req.body.adress,
-    parc: req.body.parc
+    //parc: req.body.parc
   });
 
   newUser.save((err, employeur) => {

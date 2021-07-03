@@ -5,13 +5,12 @@ const bcrypt = require('bcryptjs');
 //TODO: Assignment: Add Validate rule for email to be unique
 
 const UserSchema = mongoose.Schema({
-  name: String,
+  name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
   Cin: { type: String, required: true },
   tel: { type: String, required: true },
   adress: { type: String, required: true },
-  parc:{type:String, required: true}
   
 });
 

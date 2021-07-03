@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+  <body>
+    <div id="mySidenav" class="sidenav">
+      <div class="center"> <img src="../../assets/logo.png" width="150"></div> <button id="btn1" ><a href="admin/list-chefParc">Chef Parc</a></button>
+      <br>
+      <br>
+      <button id="btn2"><a href="admin/list-parc">Parc</a></button>
+      <br>
+      <br>
+      <button id="btn3"><a href="admin/list-employé">Employés</a></button>
+     
+      
+       <div class="center"><button (click) ="onLogOut()"  class="button">LogOut</button></div>
+      
+     </div>
+     <div class="main">
+<h1>list-Employé</h1> <br> <br>
+<div class="container">
+
+    <table class="table table-striped table-bordered">
+      <thead class="thead">
+        <tr>
+          <th scope="col">
+            <h3>Cin</h3>
+          </th>
+          <th scope="col">
+            <h3>Nom</h3>
+          </th>
+          <th scope="col">
+            <h3>email</h3>
+          </th>
+          <th scope="col">
+            <h3>Téléphone</h3>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of Employee">
+            <td>{{employee.cin}}</td>
+          <td>{{employee.username}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.tel}}</td>
+
+    <!---"---"---->
+          <td>
+            <img src="assets/delete.svg" (click)=" deleteEmployee(employee._id)" />
+            <img src="https://img.icons8.com/android/24/000000/edit.png" (click)="navigateToEdit(employee._id)" />
+                      </td>
+        </tr>
+      </tbody>
+    </table>
+    <button id="btn4"><a href="admin/ajout-employé">Ajouter employé</a></button> 
+  </div>
+  </div>
+  
+     <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+  </html>
+  

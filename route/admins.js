@@ -2,9 +2,11 @@ const express = require('express');
 const router =express.Router();
 const Admin = require('/changilniWeb/model/admin');
 const Chef = require('/changilniWeb/model/chefParc');
-const Employeur = require('/changilniWeb/model/employeur');
+//const Employeur = require('/changilniWeb/model/employeur');
+const Employee = require('/changilniWeb/model/employee.model');
 const Parc = require('/changilniWeb/model/parc');
 var _ = require('lodash');
+
 //Login
 router.post('/login',(req, res, next)=>{
     const email = req.body.email;
@@ -77,9 +79,8 @@ router.post('/ajout-chefParc', (req, res, next) => {
       Cin: req.body.Cin,
       tel: req.body.tel,
       adress: req.body.adress,
-      parc:req.body.Parc
+      parc:req.body.parc
     });
-  
     newUser.save((err, chef) => {
       if (err) {
         return res.send({
@@ -90,8 +91,9 @@ router.post('/ajout-chefParc', (req, res, next) => {
       res.send({
         success: true,
         message: 'chef Saved',
-        chef
+    chef,
       });
+     
     });
   });
   //Liste des chefs du parc
@@ -104,6 +106,12 @@ router.post('/ajout-chefParc', (req, res, next) => {
         }
         
     })
+  });
+  router.route('/getchef').post((req, res) => {
+    Chef.find({_id:req.body._id}).exec().then(result=>{
+        res.status(200).json({ result:result[0],message: "get chef" });
+  
+      })
   });
 
   //updat chef du parc
@@ -140,7 +148,7 @@ router.delete('/supp-chefParc/:id', (req, res, next)=>{
 
   //Liste des employeurs
   router.get('/list-employyeur',(req,res, next)=>{ 
-    Employeur.find((error,data)=>{
+    Employee.find((error,data)=>{
         if(error) {
             return next(error)
         } else {
@@ -152,48 +160,48 @@ router.delete('/supp-chefParc/:id', (req, res, next)=>{
 
  // ajout un employeur
  router.post('/ajout-employeur', (req, res, next) => {
-    let newUser = new Employeur({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      Cin: req.body.Cin,
-      tel: req.body.tel,
-      adress: req.body.adress,
-      parc: req.body.parc
-    });
+  console.log("inside the register");
+  const employee = new Employee({
+    username: req.body.username,
+    password: req.body.password,
+    email: req.body.email,
+    cin:req.body.cin,
   
-    newUser.save((err, employeur) => {
-      if (err) {
-        return res.send({
-          success: false,
-          message: 'Failed to save the employeur'
-        });
-      }
-      res.send({
-        success: true,
-        message: 'employeur Saved',
-        employeur
-      });
+  });
+employee.save()
+ 
+   .then(() => {
+      console.log("employee registered");
+      res.status(200).json({ msg: "Employee Successfully Registered" });
+    })
+    .catch((err) => {
+      res.status(403).json({ msg: err });
     });
   });
   //update employeur
-  router.put('/update-employeur/:id', function (req, res, next) {
+  router.patch('/update-employeur/:id', function (req, res, next) {
     // fetch user
-    Employeur.findById(req.params.id, function(err, post) {
+    Employee.findById(req.params.id, function(err, post) {
         if (err) return next(err);
 
-        _.assign(post, req.body); // update user
+        _.assign(post, req.body); 
         post.save(function(err) {
             if (err) return next(err);
             return res.json(200, post);
         })
     });
 });  
+router.route('/getemployee').post((req, res) => {
+  Employee.find({_id:req.body._id}).exec().then(result=>{
+      res.status(200).json({ result:result[0],message: "get employeur" });
+
+    })
+});
 //supprimer un employeur
 router.delete('/supp-employeur/:id', (req, res, next)=>{
    
     const employeurId= req.params.id;
-    Employeur.remove({ _id: employeurId }, (err) => {
+    Employee.remove({ _id: employeurId }, (err) => {
         if(err) {
           return res.send({
             success: false,
@@ -209,7 +217,7 @@ router.delete('/supp-employeur/:id', (req, res, next)=>{
   });
 //liste des parcs
 router.get('/list-parc',(req,res, next)=>{ 
-    Parc.find((error,data)=>{
+    Parc.find({},(error,data)=>{
         if(error) {
             return next(error)
         } else {
@@ -222,9 +230,9 @@ router.get('/list-parc',(req,res, next)=>{
   router.post('/add-parc',(req, res, next) => {
     const parc = new Parc({
       name: req.body.name,
-      adress:req.body.adress
+      adress:req.body.adress,
+      gouvernorat:req.body.gouvernorat
     });
-
     parc.save((err, parc) => {
       if (err) {
         // throw err;
@@ -247,7 +255,7 @@ router.route('/update-parc/:id').put((req, res, next) => {
     console.log(req.body)
   
     Parc.findOneAndUpdate({_id:req.params.id}, {
-      $set: {name: req.body.name,adress: req.body.adress},}).exec().then(result=>{
+      $set: {name: req.body.name,adress: req.body.adress,gouvernorat:req.body.gouvernorat},}).exec().then(result=>{
         res.status(200).json({ message: "Update successful!" });
   
       })
@@ -274,5 +282,5 @@ router.route('/update-parc/:id').put((req, res, next) => {
         });
     });
   });
-
+  
   module.exports =router;
