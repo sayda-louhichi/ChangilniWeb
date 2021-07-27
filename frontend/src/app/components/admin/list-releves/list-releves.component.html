@@ -23,26 +23,28 @@
       <br>
       <br>
       <button id="btn3"><a href="admin/list-relevés">Relevés</a></button>
-     
       
        <div class="center"><button (click) ="onLogOut()"  class="button">LogOut</button></div>
       
      </div>
      <div class="main">
-<h1>list-Employé</h1> <br> <br>
+<h1>list-Relevés</h1> <br> <br>
 <div class="container">
 
     <table class="table table-striped table-bordered">
       <thead class="thead">
         <tr>
           <th scope="col">
-            <h3>Cin</h3>
-          </th>
-          <th scope="col">
             <h3>Nom</h3>
           </th>
           <th scope="col">
-            <h3>email</h3>
+            <h3>Email Employé</h3>
+          </th>
+          <th scope="col">
+            <h3>Immatriculation</h3>
+          </th>
+          <th scope="col">
+            <h3>Parc</h3>
           </th>
           <th scope="col">
             <h3></h3>
@@ -50,19 +52,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of Employee">
-            <td>{{employee.cin}}</td>
-          <td>{{employee.username}}</td>
-          <td>{{employee.email}}</td>
-        
+        <tr *ngFor="let releve of Releve">
+            <td>{{releve.name}}</td>
+          <td>{{releve.email}}</td>
+          <td>{{releve.immatriculation}}</td>
+          <td>{{releve.parc}}</td>
           <td>
-            <img src="assets/delete.svg" (click)=" deleteEmployee(employee._id)" />
-            <img src="https://img.icons8.com/android/24/000000/edit.png" (click)="navigateToEdit(employee._id)" />
-                      </td>
+            <img src="assets/delete.svg" (click)=" deleteReleve(releve._id)" /></td>
+           
+                      
         </tr>
       </tbody>
     </table>
-    <button id="btn4"><a href="admin/ajout-employé">Ajouter employé</a></button> 
+    
   </div>
   </div>
   
@@ -73,4 +75,3 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
   </html>
-  

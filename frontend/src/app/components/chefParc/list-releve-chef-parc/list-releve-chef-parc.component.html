@@ -21,8 +21,42 @@
        <div class="center"><button (click) ="onLogOut()"  class="button">LogOut</button></div>
       
      </div>
-     
-  
+     <div class="main">
+      <h1>list-Relevés</h1> <br> <br>
+      <div class="container">
+      
+          <table class="table table-striped table-bordered">
+            <thead class="thead">
+              <tr>
+                <th scope="col">
+                  <h3>Nom</h3>
+                </th>
+                <th scope="col">
+                  <h3>Email Employé</h3>
+                </th>
+                <th scope="col">
+                  <h3>Immatriculation</h3>
+                </th>
+                <th scope="col">
+                  <h3></h3>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let releve of releves">
+                  <td>{{releve.name}}</td>
+                <td>{{releve.email}}</td>
+                <td>{{releve.immatriculation}}</td>
+                <td>
+                  <img src="assets/delete.svg"/></td>
+                 
+                            
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+        </div>
   
      <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -31,4 +65,5 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
   </html>
+
 

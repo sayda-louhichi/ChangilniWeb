@@ -2,9 +2,9 @@ const express = require('express');
 const router =express.Router();
 const Admin = require('/changilniWeb/model/admin');
 const Chef = require('/changilniWeb/model/chefParc');
-//const Employeur = require('/changilniWeb/model/employeur');
 const Employee = require('/changilniWeb/model/employee.model');
 const Parc = require('/changilniWeb/model/parc');
+const Releve = require('/changilniWeb/model/releve.model');
 var _ = require('lodash');
 
 //Login
@@ -281,6 +281,32 @@ router.route('/update-parc/:id').put((req, res, next) => {
           message: 'parc deleted'
         });
     });
+  });
+  
+  router.get('/list-releve',(req,res, next)=>{ 
+    Releve.find({},(error,data)=>{
+        if(error) {
+            return next(error)
+        } else {
+            res.json(data)
+        }
+        
+    })
+  });
+  router.route("/delete/:id").delete((req, res) => {
+    Releve.findOneAndDelete(
+      {
+        $and: [{ _id: req.params.id }],
+      },
+      (err, result) => {
+        if (err) return res.json(err);
+        else if (result) {
+          console.log(result);
+          return res.json("Relevé deleted");
+        }
+        return res.json("Relevé not deleted");
+      }
+    );
   });
   
   module.exports =router;

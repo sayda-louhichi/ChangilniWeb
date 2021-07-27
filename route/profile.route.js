@@ -77,10 +77,10 @@ router.route("/add").post(middleware.checkToken, (req, res) => {
     Profile.findOne({email:req.decoded.email},(err,result)=>{
       if(err) return res.json({err: err});
       else if(result==null){
-        return res.json({status:false});
+        return res.json({status:false,email:req.decoded.email});
       }
       else{
-        return res.json({status:true});
+        return res.json({status:true,email:req.decoded.email});
       }
     })
   });
@@ -91,7 +91,13 @@ router.route("/add").post(middleware.checkToken, (req, res) => {
       else return res.json({ data: result });
     });
   });
-
+  router.route("/getDataProfiles").get((req, res) => {
+    Profile.find((err, result) => {
+       if (err) return res.json({ err: err });
+       if (result == null) return res.json({ data: [] });
+       else return res.json({ data: result });
+     });
+   });
 
 
   router.route("/update").patch(middleware.checkToken, async (req, res) => {

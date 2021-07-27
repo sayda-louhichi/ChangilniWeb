@@ -20,6 +20,8 @@ import { ListEmployeComponent } from './components/admin/list-employe/list-emplo
 import { LoginChefComponent } from './components/chefParc/login-chef/login-chef.component';
 import { SignupChefComponent } from './components/chefParc/signup-chef/signup-chef.component';
 import { MainComponent } from './components/chefParc/main/main.component';
+import { ListRelevesComponent } from './components/admin/list-releves/list-releves.component';
+import { ListReleveChefParcComponent } from './components/chefParc/list-releve-chef-parc/list-releve-chef-parc.component';
 
 
 
@@ -41,6 +43,8 @@ import { MainComponent } from './components/chefParc/main/main.component';
     LoginChefComponent,
     SignupChefComponent,
     MainComponent,
+    ListRelevesComponent,
+    ListReleveChefParcComponent,
     
   
   ],
@@ -51,7 +55,9 @@ import { MainComponent } from './components/chefParc/main/main.component';
     FormsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,7 +11,12 @@ export class ListEmployeComponent implements OnInit {
 
   constructor(private _adminService:AdminService,private route: Router) {this.readEmployee();}
   Employee: any=[] ;
+  Profile:any=[];
   ngOnInit(): void {
+    this._adminService.getListProfile().subscribe((data)=>{
+      console.log(data)
+      this.Profile=data ;
+    })
   }
 
   readEmployee(){

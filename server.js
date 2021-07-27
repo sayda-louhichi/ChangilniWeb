@@ -12,7 +12,6 @@ const app = express();
 
 const AdminRoutes = require('/changilniWeb/route/admins');
 const ChefRoutes = require('/changilniWeb/route/chefParcs');
-const EmployeurRoutes = require('/changilniWeb/route/employeurs');
 const userRoute=require("./route/user.route");
 const immatriculeRoute=require("./route/immatricule.route");
 const profileRoute=require("./route/profile.route");
@@ -36,6 +35,7 @@ const _PORT =process.env.PORT;
 
 //---------Middlewares---------///
 app.use("/uploads",express.static("uploads"));
+app.use("/uploadsReleve",express.static("uploadsReleve"));
 app.use(express.json());
 
 app.use(cors());
@@ -54,7 +54,6 @@ app.get('/',(req,res,next)=>{
 
 app.use('/admin',AdminRoutes);
 app.use('/chefParc',ChefRoutes);
-app.use('/employeur',EmployeurRoutes);
 app.use("/employee",employeeRoute);
 app.use("/releve",releveRoute);
 app.use("/user",userRoute);

@@ -14,6 +14,7 @@ export class SignupChefComponent implements OnInit {
   Cin: String;
   tel:  String;
   adress: String;
+  parc:String;
   constructor(private _chefService:ChefParcService ,private route: Router) { }
 
   ngOnInit(): void {
@@ -30,6 +31,7 @@ export class SignupChefComponent implements OnInit {
       Cin:this.Cin,
       tel:this.tel,
       adress: this.adress,
+      parc:this.parc,
     }
     this._chefService.signup(chefParc).subscribe(
       resp => {

@@ -41,7 +41,16 @@ loginAdmin(admin):Observable<any>{
     getListEmployees(){
       return this.http.get(`${this.baseUri}/admin/list-employyeur`);
     }
-    
+    getListReleves(){
+      return this.http.get(`${this.baseUri}/admin/list-releve`);
+    }
+    deleteReleve(releveId):Observable<any>{
+      let url=`${this.baseUri}/admin/delete/${releveId}`;
+      return this.http.delete(url).pipe(catchError(this.errorMgmt))
+    }
+    getListProfile(){
+      return this.http.get(`${this.baseUri}/profile/getDataProfiles`)
+    }
     saveParc(parc):Observable<any>{
       let url=`${this.baseUri}/admin/add-parc`;
       return this.http.post(url,parc).pipe(catchError(this.errorMgmt))

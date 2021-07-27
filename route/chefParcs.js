@@ -2,15 +2,20 @@
 const express = require('express');
 const router = express.Router();
 const Chef = require('/changilniWeb/model/chefParc');
+const Releve = require("../model/releve.model");
+let middleware = require("../middleware");
+const config = require("../config");
+const jwt = require('jsonwebtoken');
 var _ = require('lodash');
-
+const Parc = require('/changilniWeb/model/parc');
 
 //Login
-router.post('/auth', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
+  const parc =req.body.parc;
 
-  const query = { email }
+  const query = { email ,parc}
   //valider l'utilistaue existe
   Chef.findOne(query, (err, chef) => {
     if (err) {
@@ -35,21 +40,23 @@ router.post('/auth', (req, res, next) => {
           message: 'Error, Invalid Password'
         });
       }
-     
+      let token = jwt.sign({ email: req.body.email },config.key, {});
       //utilisateur valide 
 
       let returnUser = {
         name: chef.name,
         email: chef.email,
+        parc:chef.parc,
         id: chef._id,
-        
+        token
       }
 
       //envoyer la réponse
       return res.send({
         success: true,
         message: 'You can login now',
-        chef: returnUser
+        chef: returnUser,
+        
       });
     });
 
@@ -67,19 +74,19 @@ router.post('/register', (req, res, next) => {
     tel: req.body.tel,
     adress: req.body.adress
   });
-
   newUser.save((err, chef) => {
     if (err) {
       return res.send({
         success: false,
-        message: 'Failed to save the user'
+        message: 'Failed to save the chef'
       });
     }
     res.send({
       success: true,
       message: 'chef Saved',
-      chef
+  chef,
     });
+   
   });
 });
 //edit profile
@@ -95,6 +102,36 @@ router.put('/update-profile/:id', function (req, res, next) {
       })
   });
 });  
+
+router.get('/list-parc',(req,res, next)=>{ 
+  Parc.find({},(error,data)=>{
+      if(error) {
+          return next(error)
+      } else {
+          res.json(data)
+      }
+      
+  })
+});
+
+router.post('/list',(req, res, next) => {
+  const parc = req.body.parc;
+  Releve.find({ parc }, (err, releves)=>{
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error while reteriving the tasks'
+      });
+    }
+
+    return res.send({
+      success: true,
+      releves
+    });
+  });
+});
+
+
 
 
 module.exports = router;

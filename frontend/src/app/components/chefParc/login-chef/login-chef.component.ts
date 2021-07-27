@@ -10,34 +10,41 @@ import { ChefParcService } from 'src/app/service/chef-parc.service';
 export class LoginChefComponent implements OnInit {
   email: string;
   password: string;
-  constructor(private _chefService:ChefParcService ,private route: Router) { }
+  parc :String;
+  Parc: any=[] ;
+  constructor(private _chefService:ChefParcService ,private _adminService:ChefParcService ,private route: Router) { }
 
   ngOnInit(): void {
+    this._adminService.getListParc().subscribe((data)=>{
+      console.log(data)
+      this.Parc=data ;
+      
+    })
   }
   onLoginChef(){
-    if ( !this.email || !this.password){
-       console .log('all fields are required');
-       return false;
-     }
-     const chef={
-       
-       email:this.email,
-       password:this.password
-     }
- 
-     this._chefService.login(chef).subscribe(
-       resp =>{
-         if(!resp.success){console.log('error');
-        
-        }
-         
-         else if (resp.success){console.log('login chef success') ;
-        this.route.navigate(['/main']);
-        }
-          
+      if ( !this.email || !this.password || !this.parc){
+         console .log('all fields are required');
+         return false;
        }
-       
-       );
+       const chef={
+         
+         email:this.email,
+         password:this.password,
+         parc:this.parc
+       }
+   
+       this._chefService.login(chef).subscribe(
+         resp =>{
+           if(!resp.success){console.log('error');}
+           else if (resp.success){console.log('login success') ;
+           this._chefService.saveUserDate(resp.token, resp.chef);
+           this.route.navigate(['/main'])}
+           
+         }
+         
+         );
+     }
        
    }
-}
+   
+

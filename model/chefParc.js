@@ -9,9 +9,9 @@ const UserSchema = mongoose.Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   Cin: { type: String, required: true },
-  tel: { type: String, required: true },
+  tel: { type: String },
   adress: { type: String},
-  //parc:{type: String, required: true}
+  parc:{type: String}
 });
 
 //Pre Save Hook. Used to hash the password
