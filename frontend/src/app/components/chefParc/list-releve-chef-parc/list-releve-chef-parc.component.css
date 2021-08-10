@@ -1,5 +1,5 @@
 .thead {
-    background-color:#E78200;
+    background-color:#27313B;
     color: white;
   }
 
@@ -135,15 +135,16 @@
   
   }
   body{
-      background-color: #E78200;
+      background-color: #27313B;
+     
   }
   h1{
       margin-left: 300px;
       margin-top: 100px;
   }
-  table {
+ /* table {
     margin-left: auto;
     margin-right: auto;
-  }
+  }*/
 a{color:white}
   

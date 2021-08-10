@@ -20,8 +20,14 @@ export class ListParcComponent implements OnInit {
     })
   }
   deleteParc(parcId){
-    this._adminService.deleteParc(parcId).subscribe();
-    this.route.navigate(['/admin/list-parc']);
+    if(confirm("Vous voulez vraiment supprimer ce parc")){
+    this._adminService.deleteParc(parcId).subscribe(
+      resp =>{        
+        console.log("parc supprimé");
+        this.route.navigate(['/admin/list-parc']);
+      }
+    )
+    }
   }
   
   onLogOut(){
@@ -32,5 +38,8 @@ export class ListParcComponent implements OnInit {
   navigateToEdit(id){
     this.route.navigate(['/admin/edit-parc/'+id])
   }
-  
+  onAddParc(){
+    this.route.navigate(['/admin/ajout-parc']);
+    return false;
+  }
 }

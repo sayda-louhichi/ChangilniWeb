@@ -25,9 +25,16 @@ export class ListChefPArcComponent implements OnInit {
     })
   }
   deleteChefParc(chefParcId){
-    this._adminService.deleteChefParc(chefParcId).subscribe();
-    this.route.navigate(['admin/list-chefParc']);
+    if(confirm("Vous voulez vraiment supprimer ce chef du parc")){
+    this._adminService.deleteChefParc(chefParcId).subscribe(
+      resp =>{        
+        console.log("chef parc supprimé");
+        this.route.navigate(['/admin/list-chefParc']);
+      }
+    )
+    }
   }
+  
   onLogOut(){
     this._adminService.logOut();
     this.route.navigate(['/admin-auth']);
@@ -35,5 +42,9 @@ export class ListChefPArcComponent implements OnInit {
   }
   navigateToEdit(id){
     this.route.navigate(['/admin/edit-chef/'+id])
+  }
+  onAddChefParc(){
+    this.route.navigate(['/admin/ajout-chefParc']);
+    return false;
   }
 }

@@ -9,6 +9,7 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class ListRelevesComponent implements OnInit {
   Releve: any=[] ;
+  coverImage:any;
   constructor(private _adminService:AdminService,private route: Router) {this.readReleve();}
 
   ngOnInit(): void {
@@ -19,9 +20,14 @@ export class ListRelevesComponent implements OnInit {
     })
   }
   deleteReleve(releveId){
-    this._adminService.deleteReleve(releveId).subscribe();
+    if(confirm("Vous voulez vraiment supprimer cet relevé")){
+    this._adminService.deleteReleve(releveId).subscribe(
+    resp =>{        
+      console.log("parc supprimé");
     this.route.navigate(['/admin/list-relevés']);
   }
+    )}}
+  
   onLogOut(){
     this._adminService.logOut();
     this.route.navigate(['/admin-auth']);

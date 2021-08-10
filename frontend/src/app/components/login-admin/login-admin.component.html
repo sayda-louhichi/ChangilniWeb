@@ -9,40 +9,21 @@
 </head>
 <body>
 <div id="ID1-Admin_sign_in">
-	<svg class="Rectangle_164_n">
-		<linearGradient id="Rectangle_164_n" spreadMethod="pad" x1="0" x2="0" y1="0" y2="1">
-			<stop offset="0" stop-color="#8280ff" stop-opacity="1"></stop>
-			<stop offset="1" stop-color="#7e96ff" stop-opacity="1"></stop>
-		</linearGradient>
-		<rect id="Rectangle_164_n" rx="0" ry="0" x="0" y="0" width="800" height="960">
-		</rect>
-	</svg>
+	
 	<img id="e049cbf3-3a6b-4e33-8253-37fbcc" src="assets/logo.png" >
 		
-	<div id="text">
-		<svg class="Rectangle_163">
-			<rect id="Rectangle_163" rx="477" ry="477" x="0" y="0" width="1132" height="960">
-			</rect>
-		</svg>
-		<div id="text_s">
-			<svg class="Rectangle_163_t">
-				<rect id="Rectangle_163_t" rx="0" ry="0" x="0" y="0" width="1132" height="1000">
-				</rect>
-			</svg>
+	 <div style="text-align:center">
 			<form (submit)="onLoginAdmin()">
-				
-			<div id="label">
 				<div class="form-group">
-					<label class="col-lg-2 control-label">Email</label>
 					<div class="col-lg-10">
-					  <input id="input" type="email" class="form-control"[(ngModel)]="email"name="email" >
+						<input class="form-control"[(ngModel)]="email" placeholder="Email" name="email">
 					</div>
-				  </div>
+				  
 				
 				  <div class="form-group">
-					<label class="col-lg-2 control-label">Password</label>
+					
 					<div class="col-lg-10">
-					  <input id="input"type="password" class="form-control" [(ngModel)]="password" name="password" >
+					   <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" name="password" >
 					</div>
 				  </div>
 				</div>
@@ -52,9 +33,6 @@
 			
 		</div>
 	</div>
-	<div id="Se_connecter_">
-		<span>Se connecter</span>
-	</div>
-</div>
+	
 </body>
 </html>

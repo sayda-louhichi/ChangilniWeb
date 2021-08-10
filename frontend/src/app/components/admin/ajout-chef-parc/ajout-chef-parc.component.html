@@ -13,21 +13,22 @@
 </head>
   <body>
     <div id="class">
-    <div id="mySidenav" class="sidenav">
-      <div class="center"> <img src="../../assets/logo.png" width="150"></div>
-       <button id="btn1" ><a href="admin/list-chefParc">Chef Parc</a></button>
-      <br>
-      <br>
-      <button id="btn2"><a href="admin/list-parc">Parc</a></button>
-      <br>
-      <br>
-      <button id="btn3"><a href="admin/list-employé">Employés</a></button>
-      <br>
-      <br>
-      <button id="btn3"><a href="admin/list-relevés">Relevés</a></button>
-       <div class="center"><button (click) ="onLogOut()"  class="button">LogOut</button></div>
-      
-     </div>
+      <div id="mySidenav" class="sidenav">
+        <div class="center"> <img src="../../assets/logo.png" width="150"></div> 
+        <button id="btn1" ><a href="admin/list-chefParc">Chef Parc</a></button>
+        <br>
+        <br>
+        <button id="btn2"><a href="admin/list-parc">Parc</a></button>
+        <br>
+        <br>
+        <button id="btn3"><a href="admin/list-employé">Employés</a></button>
+        <br>
+        <br>
+        <button id="btn4"><a href="admin/list-relevés">Relevés</a></button>
+        
+         <div class="center"><button (onclick) ="onLogOut()"  class="button">LogOut</button></div>
+         <!---input type = "button" value = "Click" onclick = "showResult();"-->
+       </div>
      <div class="main">
         <form  (submit)="onAddChefParc()"class="form-horizontal" >
             <h2>Ajout Chef parc</h2>
@@ -39,7 +40,7 @@
                 <input type="text" class="form-control"[(ngModel)]="email" placeholder="Email" name="email">
               </div>
               <div class="col-lg-10">
-                <input type="text" class="form-control" [(ngModel)]="password" placeholder="Password" name="password" >
+                <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" name="password" >
               </div>
               <div class="col-lg-10">
                 <input type="text" class="form-control"[(ngModel)]="Cin" placeholder="Cin" name="Cin">
@@ -58,7 +59,7 @@
               
             <div class="form-group">
               <div class="pull-right">
-                <button id="btn4" type="submit" class="btn btn-primary">Ajouter</button>
+                <button id="btn5" type="submit" class="btn btn-primary">Ajouter</button>
               </div>
             </div>
           

@@ -25,9 +25,17 @@ export class ListEmployeComponent implements OnInit {
     })
   }
   deleteEmployee(employeeId){
-    this._adminService.deleteEmploye(employeeId).subscribe();
-    this.route.navigate(['/admin/list-employé']);
+    if(confirm("Vous voulez vraiment supprimer cet employé")){
+    this._adminService.deleteEmploye(employeeId).subscribe(
+      resp =>{        
+        console.log("parc supprimé");
+        this.route.navigate(['/admin/list-employé']);
+      }
+    )
+    }
+   
   }
+
   onLogOut(){
     this._adminService.logOut();
     this.route.navigate(['/admin-auth']);
@@ -35,5 +43,9 @@ export class ListEmployeComponent implements OnInit {
   }
   navigateToEdit(id){
     this.route.navigate(['/admin/edit-employé/'+id])
+  }
+  onAddEmployee(){
+    this.route.navigate(['/admin/ajout-employé']);
+    return false;
   }
 }

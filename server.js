@@ -7,6 +7,7 @@ const passport=require('passport');
 const path = require('path');
 const cors = require('cors');
 
+
 //initialisation app avec express
 const app = express();
 
@@ -35,7 +36,9 @@ const _PORT =process.env.PORT;
 
 //---------Middlewares---------///
 app.use("/uploads",express.static("uploads"));
-app.use("/uploadsReleve",express.static("uploadsReleve"));
+//app.use("/uploadsReleve",express.static(path.join("uploadsReleve")));
+app.use("/uploadsReleve", express.static("uploadsReleve"));  
+
 app.use(express.json());
 
 app.use(cors());
