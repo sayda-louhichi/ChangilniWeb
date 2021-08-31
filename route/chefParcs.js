@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Chef = require('/changilniWeb/model/chefParc');
 const Releve = require("../model/releve.model");
+const Facture = require("../model/facture.model");
 let middleware = require("../middleware");
 const config = require("../config");
 const jwt = require('jsonwebtoken');
@@ -130,8 +131,47 @@ router.post('/list',(req, res, next) => {
     });
   });
 });
+router.route("/addFacture").post( (req, res) => {
+  const facture = Facture({
+  name:req.body.name,
+  immatriculation: req.body.immatriculation,
+  date: req.body.date,
+  heureDebut: req.body.heureDebut,
+  heureFin: req.body.heureFin,
+  total: req.body.total,
+ email:req.body.email,
+ owner:req.body.owner,
+  });
+  facture
+    .save()
+    .then(() => {
+      return res.json({ msg: "facture successfully stored" });
+    })
+    .catch((err) => {
+      return res.status(400).json({ err: err });
+    });
+});
+router.route("/getOwnFacture").get(middleware.checkToken, (req, res) => {
+  Facture.find({email:req.decoded.email}, (err, result) => {
+  if (err) return res.json(err);
+  return res.json({ data: result });
+});
+});
+router.post('/listFacture',(req, res, next) => {
+  //const parc = req.body.parc;
+  const email = req.body.email
+  Facture.find({ email }, (err, factures)=>{
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error while reteriving the tasks'
+      });
+    }
 
-
-
-
+    return res.send({
+      success: true,
+      factures
+    });
+  });
+});
 module.exports = router;

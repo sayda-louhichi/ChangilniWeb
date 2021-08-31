@@ -5,6 +5,7 @@ const Chef = require('/changilniWeb/model/chefParc');
 const Employee = require('/changilniWeb/model/employee.model');
 const Parc = require('/changilniWeb/model/parc');
 const Releve = require('/changilniWeb/model/releve.model');
+const Immatricule = require('/changilniWeb/model/immatricule.model');
 var _ = require('lodash');
 
 //Login
@@ -308,5 +309,15 @@ router.route('/update-parc/:id').put((req, res, next) => {
       }
     );
   });
-  
+  /////liste des immatriculation
+  router.get('/list-imma',(req,res, next)=>{ 
+    Immatricule.find({},(error,data)=>{
+        if(error) {
+            return next(error)
+        } else {
+            res.json(data)
+        }
+        
+    })
+  });
   module.exports =router;

@@ -41,9 +41,5 @@ export class LoginAdminComponent implements OnInit {
        
    }
    
-   /*onLogOut(){
-    this._adminService.logOut();
-    this.router.navigate(['/admin-auth']);
-    return false;
-  }*/
+   
 }

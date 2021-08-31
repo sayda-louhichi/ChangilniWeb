@@ -47,6 +47,16 @@ router.route("/getallImma").get(middleware.checkToken, (req, res) => {
     return res.json({ data: result });
   });
 });
+router.get('/list-imma',(req,res, next)=>{ 
+  Immatricule.find({},(error,data)=>{
+      if(error) {
+          return next(error)
+      } else { 
+          res.json(data)
+      }
+      
+  })
+});
 // modifier immatriculation
 /*router.route('/update/:immatriculation').patch((req, res, next) => {
     Immatricule.findOneAndUpdate({immatriculation:req.params.immatriculation}, {

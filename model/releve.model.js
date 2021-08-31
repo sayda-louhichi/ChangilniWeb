@@ -9,7 +9,6 @@ const Releve = Schema({
   parc: {
     type: String,
     required: true,
-    unique: true,
   },
   coverImage: {
     type: String,

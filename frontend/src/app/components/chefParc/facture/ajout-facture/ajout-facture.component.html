@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-color:#27313B">
+    <div id="mySidenav" class="sidenav">
+      <div class="center"> <img src="../../assets/logo.png" width="150"></div>
+      <br>
+      <br>
+      <button id="btn2"><a href="chefParc/list-relevés">Relevés</a></button>
+      <br>
+      <br>
+      <br>
+      <button id="btn3"><a href="chefParc/list-factures">Factures</a></button>
+      
+       <div class="center"><button (click) ="onLogOut()"  class="button">LogOut</button></div>
+      
+     </div>
+     <div class="main">
+        <form  (submit)="onAddFacture()"class="form-horizontal" >
+            <h2>Ajout Facture</h2>
+            <div class="form-group">
+              <div class="col-lg-10">
+                <input type="text" class="form-control"[(ngModel)]="name" placeholder="Nom" name="name">
+              </div>
+              
+              <div class="col-lg-10">
+                <label>Immatriculation </label><br>
+                <select size="1" class="form-control" [(ngModel)]="immatriculation" name="immatriculation">
+                        <option *ngFor="let immatriculation of Immatriculation" [value]="immatriculation.immatriculation">{{immatriculation.immatriculation}}</option>
+                </select>
+                
+              </div>
+              <br>
+              <div class="col-lg-10">
+                <input type="date" class="form-control"[(ngModel)]="date" placeholder="Date" name="date">
+              </div>
+              <br>
+              <div class="col-lg-10">
+                <input type="time" class="form-control" [(ngModel)]="heureDebut" placeholder="Heure Début" name="heureDebut" >
+              </div>
+              <br>
+              <div class="col-lg-10">
+                <input type="time" class="form-control"[(ngModel)]="heureFin" placeholder="Heure Fin" name="heureFin">
+              </div>
+            </div>
+            <br>
+      <div class="col-lg-10">
+        <input type="text" class="form-control"[(ngModel)]="total" placeholder="Montant" name="total" >
+      </div>
+          <br>
+          
+            <div class="form-group">
+              <div class="pull-right">
+                <button id="btn5" type="submit" class="btn btn-primary">Ajouter</button>
+              </div>
+            </div>
+          
+          </form>
+        </div>
+  
+     <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+  </html>
+
+
+

@@ -59,4 +59,15 @@ export class ChefParcService {
   getListParc(){
     return this.http.get(`${this.baseUri}/chefParc/list-parc`);
   }
+  getListFacture(query):Observable<any>{
+    let url=`${this.baseUri}/chefParc/listFacture`;
+    return this.http.post(url,query).pipe(catchError(this.errorMgmt))
+  }
+  saveFacture(facture):Observable<any>{
+    let url=`${this.baseUri}/chefParc/addFacture`;
+    return this.http.post(url,facture).pipe(catchError(this.errorMgmt))
+  }
+  getListImma(){
+    return this.http.get(`${this.baseUri}/immatricule/list-imma`);
+  }
 }

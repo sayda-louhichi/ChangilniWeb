@@ -11,6 +11,8 @@ import { ChefParcService } from 'src/app/service/chef-parc.service';
 export class ListReleveChefParcComponent implements OnInit {
   releves: any=[] ;
 parc:String;
+today: number = Date.now();
+fixedTimezone = this.today;
 
   
   constructor(private _chefService:ChefParcService ,private _adminService:AdminService,private route: Router)
@@ -27,7 +29,14 @@ this._chefService.GetReleve(query).subscribe(
 )
 
   }
- 
+  deleteReleve(releveId){
+    if(confirm("Vous voulez vraiment supprimer cet relevé")){
+    this._adminService.deleteReleve(releveId).subscribe(
+    resp =>{        
+      console.log("relevé supprimé");
+    this.route.navigate(['chefParc/list-relevés']);
+  }
+    )}}
   onLogOut(){
     this._chefService.logOut();
     this.route.navigate(['/chef-auth']);

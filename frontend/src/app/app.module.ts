@@ -22,6 +22,8 @@ import { SignupChefComponent } from './components/chefParc/signup-chef/signup-ch
 import { MainComponent } from './components/chefParc/main/main.component';
 import { ListRelevesComponent } from './components/admin/list-releves/list-releves.component';
 import { ListReleveChefParcComponent } from './components/chefParc/list-releve-chef-parc/list-releve-chef-parc.component';
+import { ListFacturesComponent } from './components/chefParc/facture/list-factures/list-factures.component';
+import { AjoutFactureComponent } from './components/chefParc/facture/ajout-facture/ajout-facture.component';
 
 
 
@@ -45,6 +47,8 @@ import { ListReleveChefParcComponent } from './components/chefParc/list-releve-c
     MainComponent,
     ListRelevesComponent,
     ListReleveChefParcComponent,
+    ListFacturesComponent,
+    AjoutFactureComponent,
     
   
   ],
