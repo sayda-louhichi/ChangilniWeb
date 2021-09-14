@@ -29,7 +29,7 @@ router.route("/checkuser/:email").get((req, res) => {
   });
 });
 
-router.route("/login").post((req, res) => {
+/*router.route("/login").post((req, res) => {
   User.findOne({email: req.body.email }, (err, result) => {
     if (err) return res.status(500).json({ msg: err });
     if (result === null) {
@@ -38,7 +38,6 @@ router.route("/login").post((req, res) => {
     if (result.password === req.body.password) {
       // here we implement the JWT token functionality
       let token = jwt.sign({ email: req.body.email }, config.key, {});
-
       res.json({
         token: token,
         msg: "success",
@@ -47,22 +46,56 @@ router.route("/login").post((req, res) => {
       res.status(403).json("password is incorrect");
     }
   });
-});
+});*/
+router.post('/login',(req, res, next)=>{
+  const email = req.body.email;
+  const password = req.body.password;
+
+  const query={email}
+  //utilisateur existe 
+  User.findOne(query,(err,user)=>{
+      if(err){
+          return res.send({
+              success: false,
+              message:'Error, please try again'
+          });
+      }
+      if(!user){
+          return res.send({
+              success: false,
+              message:'Eror, Account not found'
+          });
+      }
+          let returnUser ={
+              username:user.username,
+              email :user.email,
+            
+          }
+          return res.send({
+              success: true,
+              message:'you can login now',
+              user: returnUser,
+              token : user.generateAuthToken(),
+          });
+      });
+  });
+
+ 
 
 router.route("/register").post((req, res) => {
   console.log("inside the register");
   const client = new User({
     username: req.body.username,
     password: req.body.password,
-    email: req.body.email,
-  
+    email: req.body.email
   });
 client.save()
- 
    .then(() => {
+    let token = jwt.sign({ email: req.body.email }, config.key, {});
       console.log("user registered");
-      res.status(200).json({ msg: "User Successfully Registered" });
+      res.json({ msg: "User Successfully Registered" ,token:token});
     })
+    
     .catch((err) => {
       res.status(403).json({ msg: err });
     });

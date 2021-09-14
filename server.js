@@ -18,6 +18,7 @@ const immatriculeRoute=require("./route/immatricule.route");
 const profileRoute=require("./route/profile.route");
 const employeeRoute=require("./route/employee.route");
 const releveRoute=require("./route/releve.route");
+const notifRoute=require("/changilniWeb/notification")
 //const UserRoutes =require('/changilniWeb/route/users')
 
 
@@ -62,6 +63,7 @@ app.use("/releve",releveRoute);
 app.use("/user",userRoute);
 app.use("/immatricule",immatriculeRoute);
 app.use("/profile",profileRoute);
+app.use("/notification",notifRoute);
 //app.use('/user',UserRoutes)
 //Démarrer le service
 app.listen(_PORT,"0.0.0.0",()=>{
