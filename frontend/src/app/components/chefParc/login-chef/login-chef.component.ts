@@ -30,7 +30,7 @@ export class LoginChefComponent implements OnInit {
          
          email:this.email,
          password:this.password,
-         parc:this.parc
+         parc:this.parc,
        }
    
        this._chefService.login(chef).subscribe(

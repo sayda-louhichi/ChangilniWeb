@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
 import { AjoutChefPArcComponent } from './components/admin/ajout-chef-parc/ajout-chef-parc.component';
 import { ListChefPArcComponent } from './components/admin/list-chef-parc/list-chef-parc.component';
 import { AjoutParcComponent } from './components/admin/ajout-parc/ajout-parc.component';
@@ -22,7 +23,6 @@ import { SignupChefComponent } from './components/chefParc/signup-chef/signup-ch
 import { MainComponent } from './components/chefParc/main/main.component';
 import { ListRelevesComponent } from './components/admin/list-releves/list-releves.component';
 import { ListReleveChefParcComponent } from './components/chefParc/list-releve-chef-parc/list-releve-chef-parc.component';
-import { ListFacturesComponent } from './components/chefParc/facture/list-factures/list-factures.component';
 import { AjoutFactureComponent } from './components/chefParc/facture/ajout-facture/ajout-facture.component';
 
 
@@ -47,17 +47,15 @@ import { AjoutFactureComponent } from './components/chefParc/facture/ajout-factu
     MainComponent,
     ListRelevesComponent,
     ListReleveChefParcComponent,
-    ListFacturesComponent,
     AjoutFactureComponent,
-    
-  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    MatIconModule
   ],
   providers: [
     

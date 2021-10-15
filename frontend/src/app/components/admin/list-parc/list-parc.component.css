@@ -147,6 +147,7 @@ font-size: 30px;
   margin-left:30px;
 
 }
+th{text-align: center;}
 body {
   background: #E78200;
   background: -webkit-linear-gradient(to right, #e7e7e7, #E78200);

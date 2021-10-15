@@ -12,7 +12,7 @@ router.route("/getDataImma").get(middleware.checkToken, (req, res) => {
      else return res.json({ data: result });
    });
  });
-     
+ 
  
 //ajout info
 router.route("/add").post(middleware.checkToken, (req, res) => {
@@ -87,6 +87,21 @@ router.get('/list-imma',(req,res, next)=>{
           else return res.json({ data: result });
         }
       );
+    });
+    
+
+    router.route("/check/:immatriculation").get((req, res) => {
+      Immatricule.findOne({ immatriculation: req.params.immatriculation }, (err, result) => {
+        if (err) return res.status(500).json({ msg: err });
+        if (result !== null) {
+          return res.json({
+            Status: true,
+          });
+        } else
+          return res.json({
+            Status: false,
+          });
+      });
     });
     
 

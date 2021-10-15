@@ -29,7 +29,7 @@ router.route("/checkuser/:email").get((req, res) => {
   });
 });
 
-/*router.route("/login").post((req, res) => {
+router.route("/login").post((req, res) => {
   User.findOne({email: req.body.email }, (err, result) => {
     if (err) return res.status(500).json({ msg: err });
     if (result === null) {
@@ -46,8 +46,8 @@ router.route("/checkuser/:email").get((req, res) => {
       res.status(403).json("password is incorrect");
     }
   });
-});*/
-router.post('/login',(req, res, next)=>{
+});
+/*router.post('/login',(req, res, next)=>{
   const email = req.body.email;
   const password = req.body.password;
 
@@ -80,7 +80,7 @@ router.post('/login',(req, res, next)=>{
       });
   });
 
- 
+ */
 
 router.route("/register").post((req, res) => {
   console.log("inside the register");

@@ -10,6 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
   <body>
     <div id="class">
@@ -30,36 +31,46 @@
          <!---input type = "button" value = "Click" onclick = "showResult();"-->
        </div>
      <div class="main">
-        <form  (submit)="onAddChefParc()"class="form-horizontal" >
+        <form   action="#" #register="ngForm" (submit)="onAddChefParc()"class="form-horizontal" >
             <h2>Ajout Chef parc</h2>
             <div class="form-group">
               <div class="col-lg-10">
-                <input type="text" class="form-control"[(ngModel)]="name" placeholder="nom" name="name">
+                <input type="text" class="form-control"[(ngModel)]="name" placeholder="nom" name="name" #namecontrol="ngModel" required>
+                <span *ngIf="namecontrol.invalid && namecontrol.touched"  class="error"> champs obligatoire</span> 
+              </div>
+              <div class="col-lg-10" >
+                <input type="text" class="form-control"[(ngModel)]="email" placeholder="Email" name="email" #emailcontrol="ngModel" required pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <span *ngIf="emailcontrol.invalid && emailcontrol.touched && emailcontrol.errors?.required"  class="error">champs obligatoire</span>
+
+                     <span *ngIf="emailcontrol.touched && emailcontrol.errors?.pattern"  class="error"> Email n'est pas valide</span>     
               </div>
               <div class="col-lg-10">
-                <input type="text" class="form-control"[(ngModel)]="email" placeholder="Email" name="email">
+                <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" name="password" #passwordcontrol="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required  >
+                <span *ngIf="passwordcontrol.invalid && passwordcontrol.touched && passwordcontrol.errors?.required"  class="error">champs obligatoire</span>
+                <span *ngIf="passwordcontrol.touched && passwordcontrol.errors?.pattern"  class="error">contenir au moins 8 caractères ou plus</span>
               </div>
               <div class="col-lg-10">
-                <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" name="password" >
+                <input type="text" class="form-control"[(ngModel)]="Cin" placeholder="Cin" name="Cin" #cincontrol="ngModel" pattern="[0-9]{8}" required>
+                <span *ngIf="cincontrol.invalid && cincontrol.touched && cincontrol.errors?.required"  class="error">champs obligatoire</span>
+                <span *ngIf="cincontrol.touched && cincontrol.errors?.pattern"  class="error">contenir seulement des chiffres et ne dépasse 8</span>
               </div>
               <div class="col-lg-10">
-                <input type="text" class="form-control"[(ngModel)]="Cin" placeholder="Cin" name="Cin">
-              </div>
-              <div class="col-lg-10">
-                <input type="text" class="form-control"[(ngModel)]="tel" placeholder="tel" name="tel" >
+                <input type="text" class="form-control"[(ngModel)]="tel" placeholder="tel" name="tel"#telcontrol="ngModel" required >
+                <span *ngIf="telcontrol.invalid && telcontrol.touched"  class="error"> champs obligatoire</span> 
               </div>
             </div>
             <div class="form-group">
                 <label>liste des Parcs </label><br>
-                <select size="1" class="form-control" [(ngModel)]="parc" name="parc">
-                        <option *ngFor="let parc of Parc" [value]="parc.name">{{parc.name}}</option>
+                <select size="1" class="form-control" [(ngModel)]="parc" name="parc"#parccontrol="ngModel" required >
+                        <option *ngFor="let parc of Parc" [value]="parc.adress">{{parc.adress}}</option>
                 </select>
-                
+                <span *ngIf="parccontrol.invalid && parccontrol.touched"  class="error"> champs obligatoire</span> 
         </div>
               
             <div class="form-group">
               <div class="pull-right">
                 <button id="btn5" type="submit" class="btn btn-primary">Ajouter</button>
+                <span *ngIf="register.invalid" class="error">*Remplir tous les champs</span>
               </div>
             </div>
           

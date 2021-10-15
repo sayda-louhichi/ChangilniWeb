@@ -27,7 +27,8 @@
 			  <div class="form-group">
 				<label>liste des Parcs </label><br>
 				<select size="1" class="form-control" [(ngModel)]="parc" name="parc">
-						<option *ngFor="let parc of Parc" [value]="parc.name">{{parc.name}}</option>
+						<option *ngFor="let parc of Parc" [value]="parc.adress">{{parc.adress}}</option>
+						
 				</select>
 				
 		</div>

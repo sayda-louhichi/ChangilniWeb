@@ -15,7 +15,7 @@ const Facture = Schema({
     type: String,
     required: true,
   },
-  total:{type:Number},
+  total:Number,
   date:String,
  
  owner:String,

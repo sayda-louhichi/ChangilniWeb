@@ -3,6 +3,7 @@ const router = express.Router();
 const Releve = require("../model/releve.model");
 const middleware = require("../middleware");
 const multer = require("multer");
+var _ = require('lodash');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -45,6 +46,10 @@ router.route("/Add").post(middleware.checkToken, (req, res) => {
       immatriculation: req.body.immatriculation,
       adress: req.body.adress,
       parc:req.body.parc,
+      date:req.body.date,
+      heureDebut:req.body.heureDebut,
+      heureFin:req.body.heureFin,
+      total:req.body.total,
     });
     releve
     .save()
@@ -77,6 +82,26 @@ router.route("/delete/:id").delete(middleware.checkToken, (req, res) => {
     }
   );
 });
+router.route('/getRelevee').post((req, res) => {
+  Releve.find({_id:req.body._id}).exec().then(result=>{
+      res.status(200).json({ result:result[0],message: "get chef" });
+
+    })
+});
+
+router.put('/update-releve/:id', function (req, res, next) {
+  // fetch user
+Releve.findById(req.params.id, function(err, post) {
+      if (err) return next(err);
+
+      _.assign(post, req.body); // update user
+      post.save(function(err) {
+          if (err) return next(err);
+          return res.json(200, post);
+      })
+  });
+}); 
+
 
 
 

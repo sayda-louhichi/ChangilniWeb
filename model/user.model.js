@@ -20,8 +20,7 @@ const User = Schema({
   },
  
     token:{
-      type:String,
-    required: true,},
+      type:String,},
   
  /* tel: {
     type: String,

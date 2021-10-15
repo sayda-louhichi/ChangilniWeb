@@ -12,7 +12,7 @@
 /* The sidenav */
 .sidenav {
   height: 100%;
-  width: 250px;
+  width: 180px;
   text-align: unset;
   position: fixed;
   z-index: 1;
@@ -90,11 +90,11 @@
         background-color:#e7e7e7;
       color:#27313B;
       border: 2px solid #27313B;
-      padding: 14px 65px;
+      padding: 14px 40px;
       text-align: center;
       font-weight: bold;
       font-size: 20px;
-      margin-left:30px;
+      margin-left:15px;
     
     }
   body {
@@ -107,14 +107,17 @@
  
   table {
     margin-left: -250px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
   }
   
-  th {
-    height: 70px;
+  th,td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
   }
-  td {
-    height: 70px;
-  }
+ 
   #btn3{
     border-radius: 12px;
     background-color:#e7e7e7;

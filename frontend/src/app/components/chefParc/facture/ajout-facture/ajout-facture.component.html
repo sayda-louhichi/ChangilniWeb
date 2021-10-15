@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body style="background-color:#27313B">
+<body style="background-color:#27313B" >
     <div id="mySidenav" class="sidenav">
       <div class="center"> <img src="../../assets/logo.png" width="150"></div>
       <br>
@@ -19,26 +19,21 @@
       <button id="btn2"><a href="chefParc/list-relevés">Relevés</a></button>
       <br>
       <br>
-      <br>
-      <button id="btn3"><a href="chefParc/list-factures">Factures</a></button>
+      
       
        <div class="center"><button (click) ="onLogOut()"  class="button">LogOut</button></div>
       
      </div>
      <div class="main">
-        <form  (submit)="onAddFacture()"class="form-horizontal" >
+        <form  (submit)="update()"class="form-horizontal" >
             <h2>Ajout Facture</h2>
             <div class="form-group">
               <div class="col-lg-10">
                 <input type="text" class="form-control"[(ngModel)]="name" placeholder="Nom" name="name">
               </div>
-              
+              <br>
               <div class="col-lg-10">
-                <label>Immatriculation </label><br>
-                <select size="1" class="form-control" [(ngModel)]="immatriculation" name="immatriculation">
-                        <option *ngFor="let immatriculation of Immatriculation" [value]="immatriculation.immatriculation">{{immatriculation.immatriculation}}</option>
-                </select>
-                
+                <input type="text" class="form-control"[(ngModel)]="immatriculation" placeholder="Immatriculation" name="immatriculation">
               </div>
               <br>
               <div class="col-lg-10">
@@ -46,19 +41,19 @@
               </div>
               <br>
               <div class="col-lg-10">
-                <input type="time" class="form-control" [(ngModel)]="heureDebut" placeholder="Heure Début" name="heureDebut" >
+                <input type="number" class="form-control" [(ngModel)]="heureDebut" placeholder="Heure Début" name="heureDebut" >
               </div>
               <br>
               <div class="col-lg-10">
-                <input type="time" class="form-control"[(ngModel)]="heureFin" placeholder="Heure Fin" name="heureFin">
+                <input type="number" class="form-control"[(ngModel)]="heureFin" placeholder="Heure Fin" name="heureFin">
+              </div>
+              <br>
+              <div class="col-lg-10">
+                <input type="text" class="form-control" [(ngModel)]="total" name="total" value=" {{ +(heureFin - heureDebut) * 5 }} ">
               </div>
             </div>
             <br>
-      <div class="col-lg-10">
-        <input type="text" class="form-control"[(ngModel)]="total" placeholder="Montant" name="total" >
-      </div>
           <br>
-          
             <div class="form-group">
               <div class="pull-right">
                 <button id="btn5" type="submit" class="btn btn-primary">Ajouter</button>

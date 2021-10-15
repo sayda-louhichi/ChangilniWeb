@@ -50,7 +50,15 @@ text-decoration: none;
 border-radius: 5px;
 font-size: 16px;
 }
-
+input[type=password], select {
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 35px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
 
 
 
@@ -134,6 +142,14 @@ font-size: 30px;
       font-size: 16px;
       
     }
+    .error{
+      color:rgba(236, 27, 27, 0.699);
+    
+    }
+      
+      input.ng-invalid.ng-touched {
+       border: 4px rgba(236, 27, 27, 0.699) solid;
+     }
 
 #btn2{
     border-radius: 12px;
@@ -164,15 +180,15 @@ table {
 }
 a{color:white}
 
-  input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+input[type=text], select {
+  width: 100%;
+  outline: none;
+  padding-left: 60px;
+  border-radius: 35px;
+  border: 1px solid lightgrey;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
   
   input[type=submit] {
     width: 100%;

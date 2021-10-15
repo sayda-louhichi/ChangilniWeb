@@ -12,7 +12,6 @@ import { ListEmployeComponent } from './components/admin/list-employe/list-emplo
 import { ListParcComponent } from './components/admin/list-parc/list-parc.component';
 import { ListRelevesComponent } from './components/admin/list-releves/list-releves.component';
 import { AjoutFactureComponent } from './components/chefParc/facture/ajout-facture/ajout-facture.component';
-import { ListFacturesComponent } from './components/chefParc/facture/list-factures/list-factures.component';
 import { ListReleveChefParcComponent } from './components/chefParc/list-releve-chef-parc/list-releve-chef-parc.component';
 import { LoginChefComponent } from './components/chefParc/login-chef/login-chef.component';
 import { MainComponent } from './components/chefParc/main/main.component';
@@ -38,8 +37,7 @@ const routes: Routes = [
 {path:'chef-signup',component:SignupChefComponent},
 {path:'main',component:MainComponent},
 {path:'chefParc/list-relevés',component:ListReleveChefParcComponent},
-{path:'chefParc/list-factures',component:ListFacturesComponent},
-{path:'chefParc/ajout-Facture',component:AjoutFactureComponent}
+{path:'chefParc/ajout-Facture/:id',component:AjoutFactureComponent}
 ]
 
 @NgModule({

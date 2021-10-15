@@ -36,19 +36,17 @@
       <thead class="thead">
         <tr>
           <th scope="col">
-            <h3>Image</h3>
+            Image
+          </th>
+         
+          <th scope="col">
+            Email Employé
           </th>
           <th scope="col">
-            <h3>Nom</h3>
+            Immatriculation
           </th>
           <th scope="col">
-            <h3>Email Employé</h3>
-          </th>
-          <th scope="col">
-            <h3>Immatriculation</h3>
-          </th>
-          <th scope="col">
-            <h3>Parc</h3>
+            Parc
           </th>
           <th scope="col">
             <h3></h3>
@@ -59,7 +57,6 @@
         
           <tr *ngFor="let releve of Releve">
          <td><img [src]="'http://localhost:3000/'+releve.coverImage"  width="100px" height="100px"></td> 
-            <td>{{releve.name}}</td>
           <td>{{releve.email}}</td>
           <td>{{releve.immatriculation}}</td>
           <td>{{releve.parc}}</td>

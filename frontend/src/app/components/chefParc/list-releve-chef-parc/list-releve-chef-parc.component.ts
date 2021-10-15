@@ -42,4 +42,7 @@ this._chefService.GetReleve(query).subscribe(
     this.route.navigate(['/chef-auth']);
     return false;
   }
+  navigateToEdit(id){
+    this.route.navigate(['chefParc/ajout-Facture/'+id])
+  }
 }

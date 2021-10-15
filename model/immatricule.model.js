@@ -9,7 +9,7 @@ const Immatricule = Schema({
     immatriculation: {
       type: String,
       required: true,
-     unique:true,
+  unique:true,
     },
 });
 module.exports = mongoose.model("immatricule", Immatricule);

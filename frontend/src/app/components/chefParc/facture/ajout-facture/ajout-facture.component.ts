@@ -11,31 +11,34 @@ export class AjoutFactureComponent implements OnInit {
 
   constructor(private _chefService:ChefParcService ,private route: Router) { }
   name: String;
-  heureDebut:  String;
-  heureFin: String;
-  date:String;
-  immatriculation:string; 
-  total:String;
-  Immatriculation: any=[];
+  heureDebut:  number;
+  heureFin: number;
+  total:number;
+  immatriculation:string;
   owner:String;
-  factures: any=[] ;
+  date:String;
+
+
   ngOnInit(): void {
     const currentUser = this._chefService.getCurrentUser();
     this.owner=currentUser.email;
 console.log(JSON.stringify(this.owner));
-    this._chefService.getListImma().subscribe((data)=>{
-      console.log(data)
-      this.Immatriculation=data ;
-      
-    })
+this._chefService.getOneReleve(this.route.url.slice(-24)).subscribe(data=>{
+  this.name=data['result']['name'];
+  this.immatriculation=data['result']['immatriculation'];
+  this.date=data['result']['date'];
+  this.total=data['result']['total'];
+  this.heureDebut=data['result']['heureDebut'];
+  this.heureFin=data['result']['heureFin'];
+})  
   }
-  onAddFacture() {
+  /*onAddFacture() {
     const facture = {
       name : this.name,
       heureDebut:this.heureDebut,
       heureFin:this.heureFin,
-      total:this.total,
       immatriculation:this.immatriculation,
+      total:this.total,
       date:this.date,
      owner:this.owner,
     }
@@ -45,6 +48,19 @@ console.log(JSON.stringify(this.owner));
         this.route.navigate(['chefParc/list-factures']);
       }
     );
+  }*/
+  update(){
+    this._chefService.updateReleve(this.route.url.slice(-24),{
+      'name':this.name,
+      'immatriculation':this.immatriculation,
+      'date':this.date,
+      'total':this.total,
+      'heureDebut':this.heureDebut,
+      'heureFin':this.heureFin,
+}).subscribe(data=>{
+        console.log(data)
+    })
+    this.route.navigate(['chefParc/list-relevés']);
   }
   onLogOut(){
     this._chefService.logOut();

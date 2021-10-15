@@ -70,4 +70,12 @@ export class ChefParcService {
   getListImma(){
     return this.http.get(`${this.baseUri}/immatricule/list-imma`);
   }
+  getOneReleve(id){
+    let url = `${this.baseUri}/releve/getRelevee`;
+    return this.http.post(url,{"_id":id});
+  }
+  updateReleve(id, data): Observable<any> {
+    let url = `${this.baseUri}/releve/update-releve/${id}`;
+    return this.http.put(url, {...data})
+  }
 }

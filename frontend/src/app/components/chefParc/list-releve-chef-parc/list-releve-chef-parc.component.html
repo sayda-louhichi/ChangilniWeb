@@ -19,9 +19,7 @@
       <button id="btn2"><a href="chefParc/list-relevés">Relevés</a></button>
       <br>
       <br>
-      <br>
-      <button id="btn3"><a href="chefParc/list-factures">Factures</a></button>
-      
+      <br>    
        <div class="center"><button (click) ="onLogOut()"  class="button">LogOut</button></div>
       
      </div>
@@ -36,22 +34,22 @@
                   <h3>#</h3>
                 </th>
                 <th scope="col">
-                  <h3>Image</h3>
+                  Image
                 </th>
                 <th scope="col">
-                  <h3>Nom</h3>
+                  Email Employé
                 </th>
                 <th scope="col">
-                  <h3>Email Employé</h3>
+                  Immatriculation
                 </th>
                 <th scope="col">
-                  <h3>Immatriculation</h3>
+                  Date
                 </th>
                 <th scope="col">
-                  <h3>Date</h3>
+                  Heure début
                 </th>
                 <th scope="col">
-                  <h3>Heure</h3>
+                  Montant
                 </th>
                 <th scope="col">
                   <h3></h3>
@@ -62,15 +60,15 @@
               <tr *ngFor="let releve of releves; let i = index">
                 <td> {{ i + 1 }} </td>
                 <td><img [src]="'http://localhost:3000/'+releve.coverImage"  width="100px" height="100px"></td> 
-                  <td>{{releve.name}}</td>
                 <td>{{releve.email}}</td>
                 <td>{{releve.immatriculation}}</td>
-                <td>{{today | date:'dd-MM-yyyy'}}</td>
-                <td>{{today | date:'hh:mm:ss'}}</td>
-                <td>
-                  <img src="assets/delete.svg"(click)=" deleteReleve(releve._id)"/></td>
-                 
-                            
+                <td>{{today | date: 'shortDate'}}</td>
+                <td>{{releve.heureDebut}}</td>
+                <td>{{((releve.heureFin - releve.heureDebut)*5)}}dt</td>
+               <td>
+                <img src="assets/delete.svg" (click)=" deleteReleve(releve._id)" />
+                <img src="https://img.icons8.com/android/24/000000/edit.png" (click)="navigateToEdit(releve._id)" />
+                          </td>       
               </tr>
             </tbody>
           </table>

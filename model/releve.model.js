@@ -8,12 +8,16 @@ const Releve = Schema({
   email:String,
   parc: {
     type: String,
-    required: true,
+    //required: true,
   },
   coverImage: {
     type: String,
     default: "",
   },
+  heureDebut:String,
+  heureFin:String,
+  total:String,
+  date:String,
   
 });
 

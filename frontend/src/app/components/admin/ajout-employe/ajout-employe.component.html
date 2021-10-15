@@ -30,20 +30,28 @@
          <!---input type = "button" value = "Click" onclick = "showResult();"-->
        </div>
      <div class="main">
-        <form  (submit)="onAddEmployee()"class="form-horizontal" >
+        <form action="#" #register="ngForm"  (submit)="onAddEmployee()"class="form-horizontal" >
             <h2>Ajout Employé</h2>
             <div class="form-group">
               <div class="col-lg-10">
-                <input type="text" class="form-control"[(ngModel)]="username" placeholder="nom" name="name">
+                <input type="text" class="form-control"[(ngModel)]="username" placeholder="Nom" name="username" #usernamecontrol="ngModel" required>
+                <span *ngIf="usernamecontrol.invalid && usernamecontrol.touched"  class="error"> champs obligatoire</span> 
               </div>
               <div class="col-lg-10">
-                <input type="text" class="form-control"[(ngModel)]="email" placeholder="Email" name="email">
+                <input type="text" class="form-control"[(ngModel)]="email" placeholder="Email" name="email" #emailcontrol="ngModel" required pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <span *ngIf="emailcontrol.invalid && emailcontrol.touched && emailcontrol.errors?.required"  class="error">champs obligatoire</span>
+
+                     <span *ngIf="emailcontrol.touched && emailcontrol.errors?.pattern"  class="error"> Email n'est pas valide</span>     
               </div>
               <div class="col-lg-10">
-                <input type="text" class="form-control" [(ngModel)]="password" placeholder="Password" name="password" >
+                <input type="password" class="form-control" [(ngModel)]="password" placeholder="Password" name="password" #passwordcontrol="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required  >
+                <span *ngIf="passwordcontrol.invalid && passwordcontrol.touched && passwordcontrol.errors?.required"  class="error">champs obligatoire</span>
+                <span *ngIf="passwordcontrol.touched && passwordcontrol.errors?.pattern"  class="error">contenir au moins 8 caractères ou plus</span>
               </div>
               <div class="col-lg-10">
-                <input type="text" class="form-control"[(ngModel)]="cin" placeholder="Cin" name="Cin">
+                <input type="text" class="form-control"[(ngModel)]="cin" placeholder="Cin" name="cin" #cincontrol="ngModel" pattern="[0-9]{8}" required>
+                <span *ngIf="cincontrol.invalid && cincontrol.touched && cincontrol.errors?.required"  class="error">champs obligatoire</span>
+                <span *ngIf="cincontrol.touched && cincontrol.errors?.pattern"  class="error">contenir seulement des chiffres et ne dépasse 8</span>
               </div>
              
              
@@ -51,6 +59,7 @@
             <div class="form-group">
               <div class="pull-right">
                 <button id="btn5" type="submit" class="btn btn-primary">Ajouter</button>
+                <span *ngIf="register.invalid" class="error">*Remplir tous les champs</span>
               </div>
             </div>
           
